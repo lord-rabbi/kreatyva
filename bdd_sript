@@ -1,0 +1,13 @@
+CREATE DATABASE kreatyva;
+
+USE kreatyva;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    oauth_provider VARCHAR(50) NOT NULL,
+    oauth_uid VARCHAR(100) NOT NULL,     
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    picture TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
