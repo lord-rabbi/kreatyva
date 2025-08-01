@@ -5,8 +5,8 @@ require_once '../includes/db.php';
 require_once __DIR__ . '/../vendor/autoload.php'; 
 
 $fb = new \Facebook\Facebook([
-    'app_id' => 'TON_APP_ID',
-    'app_secret' => 'TON_APP_SECRET',
+    'app_id' => '740530945362146',
+    'app_secret' => '3632e9e491919e659cab39cd0c9c147c',
     'default_graph_version' => 'v17.0',
 ]);
 
@@ -42,7 +42,6 @@ $userData = [
     'picture' => $userNode->getPicture()->getUrl()
 ];
 
-// Redirection vers une API pour connexion ou création
 $ch = curl_init('http://localhost:8000/api/oauth_login.php');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($userData));

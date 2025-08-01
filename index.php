@@ -7,7 +7,6 @@ if (isset($_SESSION['user'])) {
     exit();
 }
 
-// FACEBOOK SDK
 require_once __DIR__ . '/vendor/autoload.php';
 
 $fb = new \Facebook\Facebook([
@@ -17,7 +16,7 @@ $fb = new \Facebook\Facebook([
 ]);
 
 $helper = $fb->getRedirectLoginHelper();
-$permissions = ['email']; // Optionnel : ['email', 'public_profile']
+$permissions = ['email']; 
 $facebookLoginUrl = $helper->getLoginUrl('http://localhost:8000/oauth/facebook.php', $permissions);
 ?>
 

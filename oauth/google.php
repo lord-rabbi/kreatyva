@@ -12,7 +12,6 @@ $clientID = '135683396682-8b7j9pe5perpsvsa89m99o32m75urriu.apps.googleuserconten
 $clientSecret = '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';
 $redirectUri = getBaseUrl() . '/oauth/google.php';
 
-// Initialiser le client Google
 $client = new Google_Client();
 $client->setClientId($clientID);
 $client->setClientSecret($clientSecret);
@@ -20,7 +19,6 @@ $client->setRedirectUri($redirectUri);
 $client->addScope("email");
 $client->addScope("profile");
 
-// Si l'utilisateur revient avec un "code"
 if (isset($_GET['code'])) {
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
 
@@ -80,7 +78,6 @@ if (isset($_GET['code'])) {
     }
 }
 
-// Sinon : redirige vers Google pour authentification
 $authUrl = $client->createAuthUrl();
 header('Location: ' . filter_var($authUrl, FILTER_SANITIZE_URL));
 exit;
